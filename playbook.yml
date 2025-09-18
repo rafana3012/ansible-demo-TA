@@ -1,0 +1,14 @@
+- name: Configuração inicial
+  hosts: all #inventario
+  become: true
+  tasks:
+    - name: Atualizar pacotes
+      apt: #modulo
+        update_cache: yes #sudo apt update
+        upgrade: dist #sudo apt upgrade
+
+    
+    - name: Instalar pacotes básicos
+      apt:
+        name: tree #passando nome dos pacotes
+        state: present #eles devem estar presente (precisam estar instalados)
